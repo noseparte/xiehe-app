@@ -1,0 +1,12 @@
+{
+  "DaiLi": {
+    "key": "251084128",
+    "secret": "4444d6d9e47a396025fc3926433349a1",
+    "web": "s3.proxy.mayidaili.com:8123"
+  },
+  "HuaKuai": {
+    "limit": "60",
+    "user": "328527492",
+    "pass": "ss445566"
+  }
+}
