@@ -83,7 +83,7 @@ class AliHuaKuaiManager {
         call.enqueue(object: okhttp3.Callback {
             @Throws(IOException::class)
             override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
-                println(response.body()!!.string())
+//                println(response.body()!!.string())
                 //得到的子线程
                 val result = JSONObject.parseObject(response.body()!!.string())
                 val resultData = result.getString("resultdata");

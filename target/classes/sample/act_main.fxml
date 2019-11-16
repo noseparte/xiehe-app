@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840"
+         prefWidth="1432" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171"
+         xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainClassName">
+    <Tab text="主窗口">
+        <AnchorPane minHeight="0.0" minWidth="0.0">
+            <TableView fx:id="mListView" cache="true" layoutX="14.0" layoutY="15.0" prefHeight="380.0" prefWidth="974.0"
+                       AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                       AnchorPane.topAnchor="5.0">
+                <columns>
+                    <TableColumn fx:id="select" prefWidth="30"/>
+                    <TableColumn fx:id="ids" prefWidth="40" text="No."/>
+                    <TableColumn fx:id="account" prefWidth="100.0" text="账号"/>
+                    <TableColumn fx:id="password" text="密码"/>
+                    <TableColumn fx:id="patient" prefWidth="75.0" text="就诊人"/>
+                    <TableColumn fx:id="accountState" prefWidth="85.0" text="状态"/>
+                    <TableColumn fx:id="YYKS" prefWidth="150.0" text="预约科室"/>
+                    <TableColumn fx:id="docName" prefWidth="75.0" text="医生"/>
+                    <TableColumn fx:id="isYB" maxWidth="1.7976931348623157E308" minWidth="65.0" prefWidth="-1.0"
+                                 text="是否医保"/>
+                    <TableColumn fx:id="AMPM" prefWidth="65.0" text="上/下午"/>
+                    <TableColumn fx:id="date" prefWidth="100.0" text="日期"/>
+                    <TableColumn fx:id="todayInvite" prefWidth="75.0" text="预约类型"/>
+                    <TableColumn fx:id="table_lasted" prefWidth="75.0" text="余票"/>
+                    <TableColumn fx:id="inviteState" prefWidth="400.0" text="预约状态"/>
+                </columns>
+            </TableView>
+            <Button fx:id="mReadAccount" layoutX="875.0" layoutY="498.0" mnemonicParsing="false" prefWidth="120"
+                    text="读取账号列表" AnchorPane.bottomAnchor="38.0" AnchorPane.rightAnchor="5.0"/>
+            <Button fx:id="mOneKeyLogin" layoutX="868.0" layoutY="529.0" mnemonicParsing="false" prefWidth="120"
+                    text="一键登录" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0"/>
+            <Label layoutX="5.0" layoutY="406.0" text="搜索科室" AnchorPane.bottomAnchor="144.0"
+                   AnchorPane.leftAnchor="5.0"/>
+            <TextField fx:id="mSearchText" layoutX="58.0" layoutY="401.0" prefHeight="27.0" prefWidth="172.0" text="儿科"
+                       AnchorPane.bottomAnchor="139.0" AnchorPane.leftAnchor="58.0"/>
+            <ListView fx:id="mSectionList" layoutX="17.0" layoutY="428.0" prefHeight="129.0" prefWidth="225.0"
+                      AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0"/>
+            <ListView fx:id="mSecList" layoutX="230.0" layoutY="400.0" prefHeight="160.0" prefWidth="201.0"
+                      AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="233.0"/>
+            <Label layoutX="436.0" layoutY="401.0" text="预约设置" AnchorPane.bottomAnchor="149.0"
+                   AnchorPane.leftAnchor="440.0"/>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutX="450.0" layoutY="424.0" prefHeight="20.0"
+                      prefWidth="178.0" AnchorPane.bottomAnchor="123.0" AnchorPane.leftAnchor="440.0">
+                <RadioButton fx:id="mYBSelect" mnemonicParsing="false" prefHeight="18.0" prefWidth="69.0" text="医保"/>
+                <RadioButton fx:id="mNYBSelect" layoutX="65.0" mnemonicParsing="false" prefHeight="18.0"
+                             prefWidth="71.0" selected="true" text="非医保"/>
+            </FlowPane>
+            <DatePicker fx:id="mDatePicker" layoutX="440.0" layoutY="696.0" prefHeight="27.0" prefWidth="180.0"
+                        AnchorPane.bottomAnchor="84.0" AnchorPane.leftAnchor="440.0"/>
+            <ComboBox fx:id="mComboBox" layoutX="440.0" layoutY="729.0" prefHeight="27.0" prefWidth="180.0"
+                      AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="440.0"/>
+            <Button fx:id="mModifyDocInto" layoutX="473.0" layoutY="767.0" mnemonicParsing="false" prefHeight="32.0"
+                    prefWidth="112.0" text="修改预约信息" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="473.0"/>
+            <Label layoutX="835.0" layoutY="641.0" text="定时任务" AnchorPane.bottomAnchor="149.0"
+                   AnchorPane.leftAnchor="835.0"/>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutX="835.0" layoutY="661.0" prefHeight="33.0"
+                      prefWidth="224.0" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="835.0">
+                <TextField fx:id="mTime_Hour" layoutX="625.0" layoutY="421.0" prefHeight="27.0" prefWidth="34.0"
+                           text="6"/>
+                <Label layoutX="660.0" layoutY="426.0" text="时"/>
+                <TextField fx:id="mTime_Minutes" layoutX="673.0" layoutY="421.0" prefHeight="27.0" prefWidth="34.0"
+                           text="31"/>
+                <Label layoutX="707.0" layoutY="426.0" text="分"/>
+                <TextField fx:id="mTime_Seconds" layoutX="720.0" layoutY="421.0" prefHeight="27.0" prefWidth="34.0"
+                           text="32"/>
+                <Label layoutX="754.0" layoutY="426.0" text="秒"/>
+            </FlowPane>
+            <Label fx:id="mTimeShowing" layoutX="837.0" layoutY="695.0" prefHeight="29.0" prefWidth="220.0"
+                   text="TimeShowing" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="837.0"/>
+            <Button fx:id="mStartTask" layoutX="753.0" layoutY="513.0" mnemonicParsing="false" prefHeight="35.0"
+                    prefWidth="100.0" text="启动" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="147.0"/>
+            <Button fx:id="mExecScheduler" layoutX="897.0" layoutY="742.0" mnemonicParsing="false" prefHeight="35.0"
+                    prefWidth="100.0" text="执行定时任务" AnchorPane.bottomAnchor="30.0"/>
+            <Label fx:id="mAliSigSize" alignment="CENTER" contentDisplay="CENTER" layoutX="853.0" layoutY="424.0"
+                   prefHeight="26.0" prefWidth="142.0" text="当前滑块数据:0" AnchorPane.bottomAnchor="117.0"
+                   AnchorPane.rightAnchor="5.0"/>
+            <Button fx:id="mGetAliDunData" layoutX="875.0" layoutY="469.0" mnemonicParsing="false" prefWidth="120.0"
+                    text="获取滑块数据" AnchorPane.bottomAnchor="71.0" AnchorPane.rightAnchor="5.0"/>
+            <DatePicker fx:id="mNow" layoutX="633.0" layoutY="673.0" prefHeight="27.0" prefWidth="180.0"
+                        AnchorPane.bottomAnchor="107.0"/>
+            <CheckBox fx:id="mUseNow" layoutX="665.0" layoutY="649.0" mnemonicParsing="false" text="使用当日预约"
+                      AnchorPane.bottomAnchor="140.0"/>
+        </AnchorPane>
+    </Tab>
+    <Tab text="设置">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <Label layoutX="17.0" layoutY="38.0" text="==========极速滑块平台设置==========" AnchorPane.leftAnchor="5.0"
+                   AnchorPane.topAnchor="5.0"/>
+            <Label layoutX="5.0" layoutY="32.0" text="滑块临界值" AnchorPane.leftAnchor="5.0"/>
+            <TextField fx:id="mAliDunLimit" alignment="CENTER" layoutX="78.0" layoutY="26.0" prefHeight="27.0"
+                       prefWidth="50.0" text="5" AnchorPane.leftAnchor="78.0"/>
+            <Label layoutX="5.0" layoutY="65.0" prefHeight="17.0" prefWidth="66.0" text="账号"
+                   AnchorPane.leftAnchor="5.0"/>
+            <TextField fx:id="mAliDunAccount" layoutX="78.0" layoutY="59.0" text="328527492"
+                       AnchorPane.leftAnchor="78.0"/>
+            <Label layoutX="5.0" layoutY="101.0" prefHeight="17.0" prefWidth="69.0" text="密码"
+                   AnchorPane.leftAnchor="5.0"/>
+            <TextField fx:id="mAliDunPwd" layoutX="78.0" layoutY="95.0" text="ss445566" AnchorPane.leftAnchor="78.0"/>
+            <Label layoutX="3.0" layoutY="130.0" text="=========蚂蚁代理服务器设置=========="/>
+            <Label layoutX="7.0" layoutY="157.0" text="Key"/>
+            <TextField fx:id="mMaYiKey" layoutX="54.0" layoutY="152.0" prefHeight="27.0" prefWidth="426.0"
+                       text="251084128"/>
+            <Label layoutX="7.0" layoutY="193.0" text="Secret"/>
+            <TextField fx:id="mMaYiSecret" layoutX="54.0" layoutY="188.0" prefHeight="27.0" prefWidth="426.0"
+                       text="4444d6d9e47a396025fc3926433349a1"/>
+            <Label layoutX="7.0" layoutY="229.0" text="服务器"/>
+            <TextField fx:id="mMaYiHttp" layoutX="54.0" layoutY="224.0" prefHeight="27.0" prefWidth="426.0"
+                       text="s3.proxy.mayidaili.com:8123"/>
+        </AnchorPane>
+    </Tab>
+</TabPane>
