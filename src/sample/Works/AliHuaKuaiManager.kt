@@ -1,12 +1,14 @@
 package sample.Works
 
-import com.google.gson.Gson
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.alibaba.fastjson.JSONObject
+import lombok.extern.slf4j.Slf4j
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import sample.Bean.AliWebBean
-import sample.Http.JiSuClient
+import java.io.IOException
 
+
+@Slf4j
 class AliHuaKuaiManager {
     private var limit: Int = -1
     private var mSigBeans: ArrayList<AliWebBean> = ArrayList()
@@ -65,20 +67,43 @@ class AliHuaKuaiManager {
 
     private var errorSize = 10
     fun requestNew() {
-        /*mSigBeans.add(AliWebBean().apply {
-            this.sig = "" + System.currentTimeMillis()
-        })
-        if (1 == 1) return*/
-        if (errorSize < 0) {
-            return
-        }
-        JiSuClient.getInstance().client.getReq(
-                user,
-                pass,
-                "20",
-                "{\"aid\":\"FFFF0HSYT00000000000\",\"scene\":\"register_h5\",\"token\":\"\",\"referer\":\"https://webcdn2.hsyuntai.com/page/app/hkyzh5_xh.html\"}"
-        ).enqueue(object : Callback<AliWebBean> {
-            override fun onFailure(call: Call<AliWebBean>, t: Throwable) {
+
+        var url = "http://api.yaomy.net/api/data/get";
+        //第一步获取okHttpClient对象
+        val client = OkHttpClient.Builder()
+                .build()
+        //第二步构建Request对象
+        val request = Request.Builder()
+                .url(url)
+                .get()
+                .build()
+        //第三步构建Call对象
+        val call = client.newCall(request)
+        //第四步:异步get请求
+        call.enqueue(object: okhttp3.Callback {
+            @Throws(IOException::class)
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                println(response.body()!!.string())
+                //得到的子线程
+                val result = JSONObject.parseObject(response.body()!!.string())
+                val resultData = result.getString("resultdata");
+                val dataObj = JSONObject.parseObject(resultData)
+                val token = dataObj.getString("token")
+                val sig = dataObj.getString("sig")
+                val sessionid = dataObj.getString("sessionid")
+
+                if (sig != null) {
+                    val aliWebBean = AliWebBean(sig, sessionid, token)
+                    mSigBeans.add(aliWebBean)
+                    callback(mSigBeans.size)
+                    println("加入一个新的滑块数据")
+                } else {
+                    errorSize = 10
+                    requestNew()
+                }
+            }
+
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
                 if (errorSize < 0) {
                     errorSize = 10
                 } else {
@@ -87,17 +112,36 @@ class AliHuaKuaiManager {
                 }
             }
 
-            override fun onResponse(call: Call<AliWebBean>, response: Response<AliWebBean>) {
-                println(Gson().toJson(response.body()))
-                if (response.body()?.sig != null) {
-                    mSigBeans.add(response.body()!!)
-                    callback(mSigBeans.size)
-                    println("加入一个新的滑块数据")
-                } else {
-                    errorSize = 10
-                    requestNew()
-                }
-            }
         })
+
+        /*mSigBeans.add(AliWebBean().apply {
+            this.sig = "" + System.currentTimeMillis()
+        })
+        if (1 == 1) return*/
+//        if (errorSize < 0) {
+//            return
+//        }
+//        JiSuClient.getInstance().client.getReq(
+//                user,
+//                pass,
+//                "20",
+//                "{\"aid\":\"FFFF0HSYT00000000000\",\"scene\":\"register_h5\",\"token\":\"\",\"referer\":\"https://webcdn2.hsyuntai.com/page/app/hkyzh5_xh.html\"}"
+//        ).enqueue(object : Callback<AliWebBean> {
+//            override fun onFailure(call: Call<AliWebBean>, t: Throwable) {
+//
+//            }
+//
+//            override fun onResponse(call: Call<AliWebBean>, response: Response<AliWebBean>) {
+//                println(Gson().toJson(response.body()))
+//                if (response.body()?.sig != null) {
+//                    mSigBeans.add(response.body()!!)
+//                    callback(mSigBeans.size)
+//                    println("加入一个新的滑块数据")
+//                } else {
+//                    errorSize = 10
+//                    requestNew()
+//                }
+//            }
+//        })
     }
 }
