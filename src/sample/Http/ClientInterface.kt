@@ -10,8 +10,8 @@ interface ClientInterface {
     /**
      * 获取服务器通知
      */
-    @POST("/hs-xh-single-web/r/173/20013/001")
-    fun getServerNotify(@Body post: NewsGet): Call<GetNewsBean>
+//    @POST("/hs-xh-single-web/r/173/20013/001")
+//    fun getServerNotify(@Body post: `NewsGet.java`): Call<GetNewsBean>
 
     @POST("/hs-udb-resource/r/10001/100")
     fun getUnicode(@Body body: UnicodeBean): Call<UnicodeGet>

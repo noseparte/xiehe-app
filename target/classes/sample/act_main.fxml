@@ -94,11 +94,11 @@
                        prefWidth="50.0" text="5" AnchorPane.leftAnchor="78.0"/>
             <Label layoutX="5.0" layoutY="65.0" prefHeight="17.0" prefWidth="66.0" text="账号"
                    AnchorPane.leftAnchor="5.0"/>
-            <TextField fx:id="mAliDunAccount" layoutX="78.0" layoutY="59.0" text="328527492"
+            <TextField fx:id="mAliDunAccount" layoutX="78.0" layoutY="59.0" text="226419"
                        AnchorPane.leftAnchor="78.0"/>
             <Label layoutX="5.0" layoutY="101.0" prefHeight="17.0" prefWidth="69.0" text="密码"
                    AnchorPane.leftAnchor="5.0"/>
-            <TextField fx:id="mAliDunPwd" layoutX="78.0" layoutY="95.0" text="ss445566" AnchorPane.leftAnchor="78.0"/>
+            <TextField fx:id="mAliDunPwd" layoutX="78.0" layoutY="95.0" text="226419" AnchorPane.leftAnchor="78.0"/>
             <Label layoutX="3.0" layoutY="130.0" text="=========蚂蚁代理服务器设置=========="/>
             <Label layoutX="7.0" layoutY="157.0" text="Key"/>
             <TextField fx:id="mMaYiKey" layoutX="54.0" layoutY="152.0" prefHeight="27.0" prefWidth="426.0"

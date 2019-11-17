@@ -335,7 +335,7 @@ public class MainClassName implements ProxyGet, BaseCallback {
                 }
         );
 
-        /*new HttpClient(null).getmHttp().getServerNotify(new NewsGet())
+        /*new HttpClient(null).getmHttp().getServerNotify(new `NewsGet.java`())
                 .enqueue(new Callback<GetNewsBean>() {
                     @Override
                     public void onResponse(Call<GetNewsBean> call, Response<GetNewsBean> response) {
