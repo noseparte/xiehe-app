@@ -1,7 +1,5 @@
 package sample.Bean.Save;
 
-import sample.Bean.HXYYBean.GetDeptDocRetBean;
-
 public class SaveBean {
     private String docDate;
     private String user;

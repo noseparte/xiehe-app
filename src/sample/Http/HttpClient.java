@@ -113,7 +113,7 @@ public class HttpClient {
                                     .header("terminalType", "1")
                                     .header("signal", signal)
                                     .header("User-Agent", "Dalvik/2.1.0 (Linux; U; Android 7.1.2; MI 5s Build/NJH47F)")
-                                    .method(original.method(), !getSsion.equals("") ? okhttp3.RequestBody.create(MediaType.parse("application/json;charset=utf-8"), getSsion) : original.body())
+                                    .method(original.method(), !getSsion.equals("") ? RequestBody.create(MediaType.parse("application/json;charset=utf-8"), getSsion) : original.body())
                                     .build()
                     );
                 })
